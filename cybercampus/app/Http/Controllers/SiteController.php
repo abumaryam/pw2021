@@ -17,7 +17,7 @@ class SiteController extends Controller
         $universitas = 'Universitas Tanjungpura';
         $kajur = 'Ilhamsyah';
 
-        return view('site.tentang', compact('nama_prodi', 'universitas','kajur'));
+        return view('site.tentang', compact('nama_prodi', 'universitas', 'kajur'));
     }
 
     public function kontak()
@@ -27,7 +27,14 @@ class SiteController extends Controller
 
     public function layanan()
     {
-        return view('site.layanan');
+        $list_layanan = [
+            'Pendidikan dan Pengajaran',
+            'Bakti pada Masyarakat',
+            'Penelitian',
+            'Pengembangan Aplikasi',
+            'Analisis Data'
+        ];
+        return view('site.layanan', compact('list_layanan'));
     }
 
     public function listDosen($tahun)

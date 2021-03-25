@@ -11,11 +11,11 @@
 <body>
     <h1>Layanan</h1>
     <p>Layanan Program Studi Sistem Informasi meliputi: </p>
-    <ul>
-        <li>pendidikan dan pengajaran</li>
-        <li>Organisasi dan Bakti pada Masyarakat</li>
-        <li>Penelitian</li>
-    </ul>
+    <ol>
+        @foreach($list_layanan as $ls)
+        <li>{{$ls}}</li>
+        @endforeach
+    </ol>
 
 </body>
 
