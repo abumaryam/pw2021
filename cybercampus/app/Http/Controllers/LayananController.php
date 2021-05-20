@@ -54,4 +54,10 @@ class LayananController extends Controller
         $layanan->delete();
         return redirect()->route('layanan.index');
     }
+
+    public function indexBackend()
+    {
+        $layanan = Layanan::all();
+        return view('layanan.index_backend', compact('layanan'));
+    }
 }

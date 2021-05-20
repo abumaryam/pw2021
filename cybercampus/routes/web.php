@@ -30,7 +30,7 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/', [SiteController::class, 'beranda'])->name('beranda');
-Route::get('/tentang', [SiteController::class, 'tentang'])->middleware('auth');
+Route::get('/tentang', [SiteController::class, 'tentang'])->middleware(['auth', 'permission:menambahkan-berita']);
 Route::get('/percontohan', [SiteController::class, 'percontohan']);
 Route::get('/site/kontak', [SiteController::class, 'kontak'])->name('kontak');
 Route::get('/layanan', [SiteController::class, 'layanan']);
@@ -47,3 +47,4 @@ Route::get('/cobaform', [SiteController::class, 'cobaForm'])->name('cobaform');
 Route::post('/prosesform', [SiteController::class, 'prosesForm'])->name('prosesform');
 
 Route::get('/admin/dashboard', [SiteBackendController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/layanan',  [LayananController::class, 'indexBackend'])->name('admin.layanan');
