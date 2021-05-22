@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\SiteBackendController;
+
 use App\Models\Layanan;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,3 +52,13 @@ Route::post('/prosesform', [SiteController::class, 'prosesForm'])->name('prosesf
 
 Route::get('/admin/dashboard', [SiteBackendController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/layanan',  [LayananController::class, 'indexBackend'])->name('admin.layanan');
+
+
+// OPERASI CRUD PADA Kategori
+Route::get('/admin/kategori/index', [KategoriController::class, 'index'])->name('admin.kategori.index');
+Route::get('/admin/kategori/formtambah', [KategoriController::class, 'formTambah'])->name('admin.kategori.formTambah');
+Route::get('/admin/kategori/formubah/{id}', [KategoriController::class, 'formUbah'])->name('admin.kategori.formUbah');
+Route::post('/admin/kategori/tambah', [KategoriController::class, 'tambah'])->name('admin.kategori.tambah');
+Route::post('/admin/kategori/ubah/{id}', [KategoriController::class, 'ubah'])->name('admin.kategori.ubah');
+Route::get('/admin/kategori/detail/{id}', [KategoriController::class, 'detail'])->name('admin.kategori.detail');
+Route::get('/admin/kategori/hapus/{id}', [KategoriController::class, 'hapus'])->name('admin.kategori.hapus');
